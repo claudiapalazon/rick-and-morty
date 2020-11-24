@@ -9,7 +9,7 @@ const CharacterNotFound = (props) => {
         There is no character with the name "{props.name}"
       </p>
       {props.back === true ? (
-        <Link to="/" title="Volver al listado">
+        <Link to="/" title="Back to the list">
           <button className="back">Go to the list</button>
         </Link>
       ) : null}

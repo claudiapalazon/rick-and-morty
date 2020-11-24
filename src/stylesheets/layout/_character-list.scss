@@ -21,8 +21,11 @@
     height: 310px;
     overflow: hidden;
     border-radius: 5px;
-    color: black;
-    box-shadow: 0px 0px 8px 1px $aqua;
+    color: $black;
+    box-shadow: 0px 0px 8px 2px $aqua;
+    &.dead {
+      box-shadow: 0px 0px 8px 2px red;
+    }
     &-image {
       width: 250px;
     }

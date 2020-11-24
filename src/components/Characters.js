@@ -5,11 +5,15 @@ import Filters from "./Filters";
 
 const Characters = (props) => {
   const charactersItems = props.characters.map((character) => {
+    let isAlien = character.species === "Human" ? "👤" : "👽";
+    let isAlive = character.status === "Dead" ? "dead" : "";
     return (
       <Character
         key={character.id}
         imageUrl={character.image}
         name={character.name}
+        isAlien={isAlien}
+        isAlive={isAlive}
         species={character.species}
       />
     );
