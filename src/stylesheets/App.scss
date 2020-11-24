@@ -1,3 +1,12 @@
-* {
-  background-color: aqua;
-}
+//core
+@import "core/reset";
+@import "core/variables";
+
+//layout
+@import "layout/main";
+@import "layout/character-list";
+@import "layout/form";
+@import "layout/header";
+@import "layout/not-found";
+@import "layout/character-detail";
+@import "layout/back";

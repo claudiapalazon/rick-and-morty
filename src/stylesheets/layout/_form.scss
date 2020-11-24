@@ -1,0 +1,32 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+
+  &-label {
+    margin-bottom: 10px;
+    background-color: $black;
+    color: aqua;
+    font-size: 20px;
+    width: 250px;
+    text-align: center;
+    font-family: $font-text;
+    border-radius: 5px;
+  }
+  &-input {
+    color: white;
+    border: none;
+    border-bottom: 3px solid $aqua;
+    height: 30px;
+    background-color: transparent;
+    outline: none;
+    transition: width 1s ease-in-out;
+    &:focus {
+      width: 250px;
+    }
+    &::-webkit-input-placeholder {
+      color: $white;
+    }
+  }
+}

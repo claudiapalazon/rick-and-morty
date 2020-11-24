@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Filters = (props) => {
   const handleFilter = (ev) => {
@@ -9,19 +10,25 @@ const Filters = (props) => {
   };
 
   return (
-    <form className="mb-1" onSubmit={handleFormSubmit}>
-      <label className="form__label" htmlFor="name">
-        Filtrar por nombre:
+    <form className="form" onSubmit={handleFormSubmit}>
+      <label className="form-label" htmlFor="name">
+        Who are you looking for?
       </label>
       <input
-        className="form__input-text"
+        className="form-input"
         type="text"
         id="name"
         value={props.filterText}
+        placeholder="Rick"
         onChange={handleFilter}
       />
     </form>
   );
+};
+
+Filters.propTypes = {
+  filterText: PropTypes.string.isRequired,
+  handleFilter: PropTypes.func.isRequired,
 };
 
 export default Filters;

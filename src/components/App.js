@@ -1,22 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
+import "../stylesheets/App.scss";
 import Characters from "./Characters";
+import Header from "./Header";
 import CharacterDetail from "./CharacterDetail";
 import CharacterNotFound from "./CharacterNotFound";
-import Loading from "./Loading";
 import api from "../services/api";
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
   const [filterText, setFilterText] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true);
     api.getDataFromApi().then((data) => {
       alphabeticalCharacters(data);
       setCharacters(data);
-      setIsLoading(false);
     });
   }, []);
 
@@ -57,31 +55,35 @@ const App = () => {
 
   return (
     <>
-      {isLoading === true ? <Loading /> : null}
-      <Switch>
-        <Route exact path="/">
-          {filteredCharacters.length === 0 ? (
-            <>
+      <header className="Header">
+        <Header />
+      </header>
+      <main className="App">
+        <Switch>
+          <Route exact path="/">
+            {filteredCharacters.length === 0 ? (
+              <>
+                <Characters
+                  characters={filteredCharacters}
+                  filterText={filterText}
+                  handleFilter={handleFilter}
+                />
+                <CharacterNotFound name={filterText} />
+              </>
+            ) : (
               <Characters
                 characters={filteredCharacters}
                 filterText={filterText}
                 handleFilter={handleFilter}
               />
-              <CharacterNotFound name={filterText} />
-            </>
-          ) : (
-            <Characters
-              characters={filteredCharacters}
-              filterText={filterText}
-              handleFilter={handleFilter}
-            />
-          )}
-        </Route>
-        <Route
-          path="/character/:characterName"
-          component={renderDetail}
-        ></Route>
-      </Switch>
+            )}
+          </Route>
+          <Route
+            path="/character/:characterName"
+            component={renderDetail}
+          ></Route>
+        </Switch>
+      </main>
     </>
   );
 };
