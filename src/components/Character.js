@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 
 const Character = (props) => {
   return (
-    <Link to={`/character/${props.name}`} title="Saber más de este personaje">
+    <Link
+      to={`/character/${props.name}`}
+      title="Show more about this character"
+    >
       <li className={`character ${props.isAlive}`}>
         <img
           className="character-image"

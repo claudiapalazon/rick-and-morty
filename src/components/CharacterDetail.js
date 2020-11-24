@@ -11,7 +11,9 @@ const CharacterDetail = (props) => {
         alt={`Producto: ${props.name}`}
       />
       <div className="title-detail">
-        <h2>{props.name}</h2>
+        <h2>
+          {props.name} <span>{props.isAlive}</span>
+        </h2>
         <h3>Status: {props.status}</h3>
         <h3>Species: {props.species}</h3>
         <h3>Origin: {props.origin}</h3>
@@ -29,6 +31,7 @@ CharacterDetail.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   species: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
+  isAlive: PropTypes.string,
   origin: PropTypes.string.isRequired,
   episodes: PropTypes.number.isRequired,
 };

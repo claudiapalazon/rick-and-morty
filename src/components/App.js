@@ -32,18 +32,32 @@ const App = () => {
     return character.name.toLowerCase().includes(filterText.toLowerCase());
   });
 
+  function isAlive(foundCharacter) {
+    let isAlive;
+    if (foundCharacter.status === "Dead") {
+      isAlive = "💀";
+    } else if (foundCharacter.status === "Alive") {
+      isAlive = "💖";
+    } else {
+      isAlive = "";
+    }
+    return isAlive;
+  }
+
   const renderDetail = (props) => {
     const productName = props.match.params.characterName;
     const foundCharacter = characters.find((character) => {
       return productName === character.name;
     });
     if (foundCharacter) {
+      const live = isAlive(foundCharacter);
       return (
         <CharacterDetail
           imageUrl={foundCharacter.image}
           name={foundCharacter.name}
           status={foundCharacter.status}
           species={foundCharacter.species}
+          isAlive={live}
           origin={foundCharacter.origin.name}
           episodes={foundCharacter.episode.length}
         />
