@@ -14,17 +14,17 @@ const App = () => {
   useEffect(() => {
     setIsLoading(true);
     api.getDataFromApi().then((data) => {
-      // const alpha = alphabeticalCharacters(data);
+      alphabeticalCharacters(data);
       setCharacters(data);
       setIsLoading(false);
     });
   }, []);
 
-  // const alphabeticalCharacters = (list) => {
-  //   list.sort((a, b) => {
-  //     return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
-  //   });
-  // };
+  const alphabeticalCharacters = (list) => {
+    list.sort((a, b) => {
+      return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+    });
+  };
 
   const handleFilter = (filterText) => {
     setFilterText(filterText);
