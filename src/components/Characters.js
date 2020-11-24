@@ -20,7 +20,7 @@ const Characters = (props) => {
   });
 
   return (
-    <section>
+    <section className="App">
       <Filters
         filterText={props.filterText}
         handleFilter={props.handleFilter}

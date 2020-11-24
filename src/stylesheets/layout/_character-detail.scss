@@ -5,11 +5,20 @@
   border: 2px solid $white;
   border-radius: 0px 0px 20px 20px;
   position: relative;
+  height: 550px;
+  width: 300px;
+  .img-detail {
+    width: 298px;
+    z-index: -2;
+  }
   @media all and (min-width: 830px) {
     flex-direction: row;
     border-radius: 0px 20px 20px 0;
     height: 250px;
     width: 500px;
+    .img-detail {
+      width: 250px;
+    }
   }
   .title-detail {
     margin: 15px;
@@ -17,8 +26,5 @@
     color: $white;
     font-family: $font-text;
     text-shadow: 0 0 0.2em $black;
-  }
-  .img-detail {
-    width: 250px;
   }
 }

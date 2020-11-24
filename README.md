@@ -21,9 +21,13 @@ Vamos a implementar una nueva funcionalidad: al hacer clic sobre la tarjeta de u
 
 ## Resultado
 
+Puedes visitar el siguiente enlace si quieres verlo: https://beta.adalab.es/modulo-3-evaluacion-final-claudiapalazon/#/
+
 En la vista inicial aparecen los personajes ordenados alfabéticamente. Si un personaje está vivo o no se sabe cual es su estado, su sombra es azul. En el caso de que esté muerto, su sombra es roja. Otro elemento que diferencia cada uno de los personajes es su especie. Si es humano, tendrá el icono de una persona, y si es un alien, tendrá el del alien.
 En el caso de introducir un nombre que no corresponda con ninguno de los personajes, nos aparecerá un mensaje.
 
-Cuando entramos en una tarjeta hay más detalles de el personaje en cuestión, y podemos volver al listado con la ayuda de un botón.
+Cuando entramos en una tarjeta hay más detalles de el personaje en cuestión. En función de si está vivio o muerto, aparecerá un icono al lado del nombre. Si no se especifica su estado, no aparecerá ningún icono.
+
+Podemos volver al listado con la ayuda de un botón.
 
 ![Logo](./src/images/result.png)

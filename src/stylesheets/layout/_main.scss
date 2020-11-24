@@ -1,7 +1,13 @@
 .App {
   padding-bottom: 100px;
-  overflow: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
+}
+
+.app-detail {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
 }

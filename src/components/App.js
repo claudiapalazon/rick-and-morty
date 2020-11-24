@@ -72,7 +72,7 @@ const App = () => {
       <header className="Header">
         <Header />
       </header>
-      <main className="App">
+      <main>
         <Switch>
           <Route exact path="/">
             {filteredCharacters.length === 0 ? (
