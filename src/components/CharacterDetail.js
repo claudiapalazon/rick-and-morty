@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
+// paint the detail of each character
 const CharacterDetail = (props) => {
   return (
     <section className="app-detail">

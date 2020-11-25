@@ -8,30 +8,36 @@ import CharacterNotFound from "./CharacterNotFound";
 import api from "../services/api";
 
 const App = () => {
+  // state
   const [characters, setCharacters] = useState([]);
   const [filterText, setFilterText] = useState("");
 
+  // fetch
   useEffect(() => {
     api.getDataFromApi().then((data) => {
-      alphabeticalCharacters(data);
-      setCharacters(data);
+      alphabeticalCharacters(data); // call alphabetical function
+      setCharacters(data); // change "characters" state with data value
     });
   }, []);
 
+  // alphabetical order
   const alphabeticalCharacters = (list) => {
     list.sort((a, b) => {
       return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
     });
   };
 
+  // change state filterText with the input value
   const handleFilter = (filterText) => {
     setFilterText(filterText);
   };
 
+  // filter characters with the value of the input
   const filteredCharacters = characters.filter((character) => {
     return character.name.toLowerCase().includes(filterText.toLowerCase());
   });
 
+  // check if a character is alive or dead
   function isAlive(foundCharacter) {
     let isAlive;
     if (foundCharacter.status === "Dead") {
@@ -44,6 +50,7 @@ const App = () => {
     return isAlive;
   }
 
+  // paint the detail of a character
   const renderDetail = (props) => {
     const productName = props.match.params.characterName;
     const foundCharacter = characters.find((character) => {
@@ -63,10 +70,11 @@ const App = () => {
         />
       );
     } else {
-      return <CharacterNotFound name={productName} back={true} />;
+      return <CharacterNotFound name={productName} back={true} />; // if you change the url and there's no character
     }
   };
 
+  // paint header, main (with two options: the list of characters or the detail of one of them)
   return (
     <>
       <header className="Header">

@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+// paint the form and get the value of the input.
 const Filters = (props) => {
   const handleFilter = (ev) => {
     props.handleFilter(ev.target.value);
   };
   const handleFormSubmit = (ev) => {
-    ev.preventDefault();
+    ev.preventDefault(); // unable to submit the form
   };
 
   return (

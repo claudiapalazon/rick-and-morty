@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
+// pain the card of each character
 const Character = (props) => {
   return (
     <Link

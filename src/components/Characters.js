@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Character from "./Character";
 import Filters from "./Filters";
 
+// Call form and the info of each character
 const Characters = (props) => {
   const charactersItems = props.characters.map((character) => {
     let isAlien = character.species === "Human" ? "👤" : "👽";
