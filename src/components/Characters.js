@@ -24,6 +24,7 @@ const Characters = (props) => {
     <section className="App">
       <Filters
         filterText={props.filterText}
+        handleLocation={props.handleLocation}
         handleFilter={props.handleFilter}
       />
       <ul className="character-list">{charactersItems}</ul>

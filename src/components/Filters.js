@@ -23,6 +23,8 @@ const Filters = (props) => {
         placeholder="Rick"
         onChange={handleFilter}
       />
+      <label>En origen</label>
+      <input type="checkbox" onChange={props.handleLocation} />
     </form>
   );
 };

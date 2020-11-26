@@ -11,6 +11,7 @@ const App = () => {
   // state
   const [characters, setCharacters] = useState([]);
   const [filterText, setFilterText] = useState("");
+  const [checked, setChecked] = useState(false);
 
   // fetch
   useEffect(() => {
@@ -33,9 +34,21 @@ const App = () => {
   };
 
   // filter characters with the value of the input
-  const filteredCharacters = characters.filter((character) => {
+  let filteredCharacters;
+  filteredCharacters = characters.filter((character) => {
     return character.name.toLowerCase().includes(filterText.toLowerCase());
   });
+  if (checked === true) {
+    filteredCharacters = filteredCharacters.filter((character) => {
+      return character.origin.name
+        .toLowerCase()
+        .includes(character.location.name.toLowerCase());
+    });
+  }
+
+  const handleLocation = (event) => {
+    setChecked(event.currentTarget.checked);
+  };
 
   // check if a character is alive or dead
   function isAlive(foundCharacter) {
@@ -96,6 +109,7 @@ const App = () => {
               <Characters
                 characters={filteredCharacters}
                 filterText={filterText}
+                handleLocation={handleLocation}
                 handleFilter={handleFilter}
               />
             )}
